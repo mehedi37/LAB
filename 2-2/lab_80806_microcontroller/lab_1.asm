@@ -1,0 +1,31 @@
+.MODEL SMALL
+.STACK 100H
+.CODE
+MAIN PROC
+    ;DISPLAY PROMPT
+    MOV AH, 2        ; DISPLAY CHAR
+    MOV DL, '?'      ; CHAR IS '?'
+    INT 21H
+
+  ; INPUT CHAR
+    MOV AH, 1
+    INT 21H          ; CHAR IN AL
+    MOV BL, AL       ; SAVE IT IN AL
+
+  ; GO TO NEW LINE
+    MOV AH, 2        ; DISPLAY CHAR FUNC
+    MOV DL, 0DH      ; CARRIRAGE RETURN
+    INT 21H          ; EXECUTE CARRIAGE RETURN
+    MOV DL, 0AH      ; LINE FEED
+    INT 21H
+
+  ; DISPLAY CHAR
+    MOV DL, BL       ; RETIRVE CHAR
+    INT 21H
+
+  ; RETURN TO DOS
+    MOV AH, 4CH
+    INT 21H
+
+  MAIN ENDP
+    END MAIN
