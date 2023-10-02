@@ -1,0 +1,77 @@
+.MODEL SMALL
+
+
+
+; MEMORY MODEL 5 TYPES:
+; SMALL, MIDIUM, COMPACT, LARGE, HUGE
+
+
+; stack segment
+;BY DEFAULT 1KB
+.STACK 100H
+
+;
+.DATA
+A DW 2
+B DW 5
+SUM DW ?
+LF EQU 0AH  ; LINE FEED, NEW LINE  | EQU = CONSTANT
+PROMPT EQU "TYPE YOUR NAME"
+MSG DB "ENTER YOUR NAME"
+
+
+.CODE
+MAIN PROC
+    ; INITIALIZE DS
+
+    ; MOV destination source
+    MOV AX, @DATA
+    MOV DS, AX
+
+    ; XCHG = exchange
+
+
+    ;ADD THE NUMBERS
+    ;MUST BE SAME TYPE
+    MOV AX, A
+    ADD AX, B
+    MOV SUM, AX
+
+    ;INC, DEC DESTINATION
+    INC AX
+    DEC AX
+    INC AX
+
+    ;NEG = negation
+    ;2'S COMP
+    NEG AX
+
+    MOV AH, 'A'  ; ASCII VALUE
+    MOV AX, 'A'  ; TOTAL CHAR 'A'
+
+
+    ; HIGH LVL LANG TO ASM
+    ; A = 5-A
+    MOV AX, 5
+    SUB AX, A
+    MOV A, AX
+
+
+    ; INPUT / OUTPUT
+    ; INT = INTERRUPT
+    MOV AH, 1   ; INPUT KEY FUNCTION
+    INT 21H     ; ASCII CODE IN AL
+
+    ; OUTPUT
+    MOV AH, 2
+    MOV DL, LF
+    MOV DL, AL
+    INT 21H
+
+
+    ; EXIT TO DOS
+    MOV AX, 4C00H
+    INT 21H
+
+    MAIN ENDP
+    END MAIN
