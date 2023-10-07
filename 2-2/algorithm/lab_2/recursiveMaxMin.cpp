@@ -15,8 +15,6 @@ typedef long long ll;
 // Use M_PI for pi
 
 
-// vector<int> a;
-// int max = 0, min = INT_MAX, steps = 0;
 
 vector<int> recursive_max_min(const vector<int>& a, int i, int j, int max, int min, int steps) {
     int mid = (i+j)/2;
