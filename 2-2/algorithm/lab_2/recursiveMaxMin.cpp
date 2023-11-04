@@ -72,6 +72,7 @@ vector<int> straight_max_min(const vector<int>& a) {
 
 void generate_input(int n) {
     ofstream out("input.txt");
+    srand(time(0));
     for (int i = 0; i < n; i++) {
         out << rand() << endl;  // NOLINT
     }
@@ -83,32 +84,32 @@ int main() {
     int n;
     cout << "How many elements? ";
     cin >> n;
-    generate_input(n);
+    // generate_input(n);
     ifstream in("input.txt");
     int x;
     while (in >> x) {
-      a.push_back(x);
+        a.push_back(x);
     }
     in.close();
 
     // menu for recursion and straight method of minMax
     while (1) {
-      int choice;
-      cout << "1. Recursive\n2. Straight\n";
-      cin >> choice;
-      if (choice == 1) {
-          int max = 0, min = INT_MAX;
-          vector<int> res = recursive_max_min(a, 0, n-1, max, min, 0);
-          cout << "Max: " << res[0] << " Min: " << res[1] << endl;
-          cout << "Steps: " << res[2] << endl;
-      } else if (choice == 2) {
-          vector<int> ans = straight_max_min(a);
-          cout << "Max: " << ans[0] << " Min: " << ans[1] << endl;
-          cout << "Steps: " << ans[2] << endl;
-      } else {
-          cout << "Invalid choice\n";
-          break;
-      }
+        int choice;
+        cout << "1. Recursive\n2. Straight\n";
+        cin >> choice;
+        if (choice == 1) {
+            int max = 0, min = INT_MAX;
+            vector<int> res = recursive_max_min(a, 0, n-1, max, min, 0);
+            cout << "Max: " << res[0] << " Min: " << res[1] << endl;
+            cout << "Steps: " << res[2] << endl;
+        } else if (choice == 2) {
+            vector<int> ans = straight_max_min(a);
+            cout << "Max: " << ans[0] << " Min: " << ans[1] << endl;
+            cout << "Steps: " << ans[2] << endl;
+        } else {
+            cout << "Invalid choice\n";
+            break;
+        }
     }
 
     return 0;
