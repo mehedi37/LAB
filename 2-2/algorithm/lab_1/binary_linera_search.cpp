@@ -33,18 +33,18 @@ void linear_search(vector<int> a, int find) {
 void binary_search(vector<int> a, int find) {
     int step{1}, key{0};
     sort(all(a));
-    show(a);
+    // show(a);
     step++;
     int l = 0, r = a.size()-1;
-    cout << l << " " << r << endl;
+    // cout << l << " " << r << endl;
     step++;
     int mid = 0;
     step++;
-    while (l < r) {
+    while (l <= r) {
         key++;
     step++;
         mid = (l+r)/2;
-        cout << " mid : " << mid << " | l : " << l << " | r: " << r << endl;
+        // cout << " mid : " << mid << " | l : " << l << " | r: " << r << endl;
     step++;
         if (find < a[mid]) {
     step++;
@@ -68,17 +68,6 @@ void binary_search(vector<int> a, int find) {
 
 
 int main() {
-    int n;
-    cout << "Enter how many numbers : "<< endl;
-    cin >> n;
-    ofstream out;
-    out.open("search_i.txt");
-    srand(time(nullptr));
-    for (int i{0}; i < n; i++) {
-        out << rand() << endl;
-    }
-    out.close();
-
     // input from "search_i.txt"
     ifstream in;
     in.open("search_i.txt");

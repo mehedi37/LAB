@@ -13,6 +13,7 @@ typedef long long ll;
 #define fast ios_base::sync_with_stdio(0); cin.tie(0);
 
 
+int mergeState = 1;
 // Here v = vector, l = left index, m = middle index, r = right index
 void merge(vector<int>& v, int const l, int const m, int const r) {
     int const n1 = m - l + 1;
@@ -54,13 +55,17 @@ void merge(vector<int>& v, int const l, int const m, int const r) {
         j++;
         k++;
     }
+    cout << "Merge state " << mergeState++ << ": ";
+    for (int i = 0; i < v.size(); i++) {
+        cout << v[i] << " ";
+    }
+    cout << endl;
 }
 
 // l is for left index and r is right index of the sub-vector of v to be sorted
 void mergeSort(vector<int>& v, int const l, int const r) {
     if (l >= r)
         return;
-
     int m = l + (r - l) / 2;
     mergeSort(v, l, m);
     mergeSort(v, m + 1, r);
@@ -87,12 +92,8 @@ int main() {
     }
 
     // count the time taken here
-    auto start = chrono::high_resolution_clock::now();
     mergeSort(v, 0, v.size() - 1);
-    auto end = chrono::high_resolution_clock::now();
-    auto duration = chrono::duration_cast<chrono::microseconds>(end - start);
-    cout << "Sorted array using merge sort is : ";
-    show(v);
-    cout << "Time taken by merge sort (10000 data): " << duration.count() << " microseconds" << endl;
+    // cout << "Sorted array using merge sort is : ";
+    // show(v);
     return 0;
 }

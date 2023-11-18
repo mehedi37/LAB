@@ -70,25 +70,14 @@ vector<int> straight_max_min(const vector<int>& a) {
     return ans;
 }
 
-void generate_input(int n) {
-    ofstream out("input.txt");
-    srand(time(0));
-    for (int i = 0; i < n; i++) {
-        out << rand() << endl;  // NOLINT
-    }
-    out.close();
-}
-
 int main() {
     vector<int> a;
-    int n;
-    cout << "How many elements? ";
-    cin >> n;
-    // generate_input(n);
+    int n = 0;
     ifstream in("input.txt");
     int x;
     while (in >> x) {
         a.push_back(x);
+        n++;
     }
     in.close();
 

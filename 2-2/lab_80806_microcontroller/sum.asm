@@ -3,14 +3,15 @@
     .DATA
         CR          EQU 0DH
         LF          EQU 0AH
-        MSG1        DB CR, LF, "Enter 1st digit: $"
-        MSG2        DB CR, LF, "Enter 2nd digit: $"
+        MSG1        DB CR, LF, "?$"
         firstAlph   DB 0DH,0AH,''
-        CHAR1       DB ?,
-        secAlph     DB '-'
-        CHAR2       DB ?,
+        CHAR1       DB ?
+        secAlph     DB '+ '
+        CHAR2       DB ?
         thirdAlph   DB ' = '
         CHAR3       DB ?, '$'
+        ERROR_MSG   DB CR, LF, 'ERROR SUM >= 10$'
+
 
     .code
     main proc
@@ -26,22 +27,30 @@
     int 21h
     mov CHAR1, al
 
-    ; input 2
-    lea dx, MSG2
-    mov ah, 09h
-    int 21h
     mov ah, 01h
     int 21h
     mov CHAR2, al
 
-    mov al, CHAR1
-    sub al, CHAR2
-    mov CHAR3, al
+    MOV AL, CHAR1
+    ADD AL, CHAR2
+    MOV CHAR3, AL
+    SUB CHAR3, '0'
+    CMP CHAR3, '9'
+    JBE PRINT
+ERROR:
+    LEA DX, ERROR_MSG
+    MOV AH, 09H
+    INT 21H
+    JMP @end
 
-    ; convert to ASCII
-    add CHAR3, 30h
-    lea dx, firstAlph
-    mov ah, 09h
+
+PRINT:
+    LEA DX, firstAlph
+    MOV AH, 09h
+    INT 21H
+@end:
+    mov ah, 4ch
     int 21h
+
     main endp
     end main

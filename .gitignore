@@ -12,4 +12,8 @@
 *.vsix
 *cph
 t.*
+tempCodeRunnerFile.*
 test
+*.exe
+.vscode
+.cph
