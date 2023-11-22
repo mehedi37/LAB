@@ -1,0 +1,90 @@
+.MODEL SMALL
+.STACK 100H
+.DATA
+  MSG1 DB 'WORD LENGTH OF SENTENCE (including space): $'
+  MSG2 DB 'ENTER A SENTENCE: $'
+  LEN DW 0
+
+  BASE_POINT DW 100H
+  END_POINT DW 100H
+  MIDDLE_END_POINT DW 100H
+
+  OUTPUT_MSG DB 'REVERSED SENTENCE IS: $'
+  NEW_LINE DB 0DH, 0AH, '$'
+
+.CODE
+  MAIN PROC
+    MOV AX, @DATA
+    MOV DS, AX
+
+    LEA DX, MSG2
+    MOV AH, 09H
+    INT 21H
+
+  INPUT:
+    MOV AH, 01H
+    INT 21H
+    CMP AL, 0Dh   ; compare input with carriage return
+    JE INPUT_END   ; if input is carriage return, end input
+    PUSH AX
+    CMP AL, ' '
+    JNE SPACE_NOT_FOUND
+    PUSH '*'
+
+  SPACE_NOT_FOUND:
+    INC LEN       ; increment LEN
+    JMP INPUT
+
+  INPUT_END:
+    LEA DX, OUTPUT_MSG
+    MOV AH, 09H
+    INT 21H
+
+    MOV BX, ' '
+    PUSH BX
+    PUSH BX
+
+    MOV END_POINT, SP
+
+    LEA DX, NEW_LINE
+    MOV AH, 09H
+    INT 21H
+
+    ; Ensure SP is restored to BASE_POINT before processing the stack
+    MOV SP, BASE_POINT
+
+  LOOP_TILL_SPACE:
+    CMP SP, END_POINT
+    JE END_PROGRAM
+    POP AX
+    CMP AL, ' '
+    JE SPACE_FOUND
+    PUSH AX
+    SUB SP, 2
+    JMP LOOP_TILL_SPACE
+
+  SPACE_FOUND:
+    MOV MIDDLE_END_POINT, SP
+
+  PRINT_SEGMENT:
+    POP DX
+    MOV AH, 02H
+    INT 21H
+
+    CMP SP, BASE_POINT
+    JNE PRINT_SEGMENT
+
+    SUB MIDDLE_END_POINT, 4
+    MOV BX, MIDDLE_END_POINT
+    MOV BASE_POINT, BX
+    MOV SP, BX
+    ADD BASE_POINT, 2
+
+    JMP LOOP_TILL_SPACE
+
+  END_PROGRAM:
+    MOV AH, 4CH
+    INT 21H
+
+  MAIN ENDP
+  END MAIN

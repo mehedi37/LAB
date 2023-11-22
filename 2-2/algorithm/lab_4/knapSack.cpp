@@ -8,6 +8,16 @@ void optimalSolution(vector<double> weight, vector<double> profit, double capaci
     for (int i{0}; i < weight.size(); i++) {
         ratio.insert({profit[i]/weight[i], i});
     }
+    cout << "\n\n";
+
+    vector<double> showRatio(weight.size(), 0);
+    for (auto i : ratio) {
+        showRatio[i.ss] = i.ff;
+    }
+    for (auto i : showRatio) {
+        cout << i << " ";
+    } cout << " | Ratio\n";
+
     double totProf = 0, totWeight = 0;
     vector<double> ans(weight.size(), 0);
     for (auto i : ratio) {
