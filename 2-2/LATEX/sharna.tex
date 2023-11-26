@@ -1,0 +1,25 @@
+\documentclass{book}
+\usepackage{tabularx}
+\usepackage{amsmath}
+\usepackage{varioref}
+
+\begin{document}
+\tableofcontents
+\chapter{Label and Reference} \label{chap:chapter1}
+\section{Label} \label{sec:label}
+LATEX allows to label a numbered item by a unique reference key, which can be
+used to refer the item in any part within the same document (unnumbered items, say
+paragraph, cannot be referred in this way). The labeling and referring of an item
+are performed through \label{rkey} and \ref{rkey} respectively, where \ref{rkey} is the
+assigned unique reference key of the item.
+\section{Reference} \label{sec:reference}
+The reference key of an item can be assigned by the user or automatically. The user can assign the reference key of an item by label{rkey} command, where rkey is the assigned reference key. The automatic assignment of reference key is performed by label{sec:reference} command, where sec:reference is the automatically assigned reference key. The automatically assigned reference key is composed of the prefix of the item and a number, which is automatically increased by 1 for each new item of the same prefix. For example, the automatically assigned reference key of the first section of this chapter is sec:reference, and the automatically assigned reference key of the second section of this chapter is sec:label.
+The definition is given in section \ref{sec:label}
+
+\chapter{Page reference}
+The page reference is similar to the item reference, except that the reference key is automatically assigned by the label{ } command.
+The reference key of a page is composed of the prefix page and a number, which is automatically increased by 1 for each new page.
+For example, the automatically assigned reference key of the first page of this chapter is page1, and the automatically assigned reference key of the second page of this chapter is page2. \\
+The definition is given in page \pageref{sec:reference}.\\
+Keep practice \vpageref{chap:chapter1}
+\end{document}

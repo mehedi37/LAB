@@ -1,0 +1,56 @@
+\documentclass[a4paper, 10pt]{report}
+\usepackage{tabularx, graphicx, amsmath, varioref, amssymb, amsfonts, geometry, color, setspace}
+\begin{document}
+% \input{chapterWise/chapter1.tex}
+\tableofcontents
+\chapter[Chapter Oppenheimer]{Chapter One Modern Physics} \label{chap:ChapterOppenheimer}
+This chapter is about modern physics. Inspired from film Oppenheimer.
+\section{Section of Hyped Movies}
+Some movies also released at the same time got overhyped.
+\subsection{Which Movies?}
+Let's see the Movies \ref{table:Movie_Table} below.
+% link the reference to the table
+
+\subsubsection{Movies List:}
+\begin{table}[h!]
+
+	\centering    % center the table
+
+	\begin{tabularx}{10cm}{|X|X|X|}
+		\hline
+		Movie SL. & Movie Name    & Rating \\
+		\hline
+		1        & Barbie        & 2.0    \\
+		2        & Doraemon      & 3.0    \\
+		3        & Shinchan      & 4.0    \\
+		4        & Tom and Jerry & 5.0    \\
+		5        & Pokemon       & 6.0    \\
+		6        & Dragon Ball Z & 7.0    \\
+		7        & Naruto        & 8.0    \\
+		\hline
+	\end{tabularx}
+	\caption{Table One}
+	\label{table:Movie_Table}     % label the table
+	% end centering
+\end{table}
+
+\begin{quotation}
+  % ` is used for single quote backward
+  \begin{spacing}{1.5}
+  \texttt {This movie has \textbf{`BAD SCENES'}, so we can watch together after you have passed
+  that scene.}
+  \begin{flushright}
+    \textit{- Sadia Rahman Sharna\\}
+  \end{flushright}
+  \end{spacing}
+\end{quotation}
+
+\chapter[Just Chapter Two]{Chapter Two}
+This chapter is about chapter two.
+\section{Section of Chapter Two}
+This is chapter one page reference PageRef: \pageref{chap:ChapterOppenheimer}. \\
+This is chapter one page reference \vpageref[Reference Description, Not Printed][VPageRef:]{chap:ChapterOppenheimer}. \\
+This is chapter one page reference VRef: \vref{chap:ChapterOppenheimer}. \\
+This ref type is different for Book and reports. \\[2mm]
+This line is after 2mm vertical space. \\
+\end{document}

@@ -1,0 +1,66 @@
+\documentclass[a4paper, 10pt]{article}
+\usepackage{tabularx, graphicx, amsmath, amssymb, amsfonts, geometry, color}
+\begin{document}
+Hello World!
+\LaTeX \ is fun.
+\textcolor{red}{\copyright MeEk\_0}
+\\
+MeEk\_0     % For table
+\\\\      % For new line
+$x^2 \ =\ 4$ \\
+{\color{red} $x^2 \ =\ 4$} \\
+{\color{blue} $x^2 \ =\ 4$} \\
+
+\begin{align}
+	\mathit{x^2 = 4} \\
+	\mathit{x^2 = 4}
+\end{align}
+
+\begin{equation}
+	x^2 = 4	\\
+	x^3 = 8
+\end{equation}
+\\
+% 2.1 chapter
+\textbf{A bold face Text} \\
+\textit{An italicized Text} \\
+\textsl{A slanted Text} \\
+\textsc{A small caps Text} \\
+\uppercase{A uppercase Text} \\
+\lowercase{A LOwERCASe TexT} \\
+\emph{A emphasized Text} \\
+\\
+\texttt{A typewriter Text} \\
+\textrm{A Serif family Text} \\
+\textsf{A Sans Serif family Text} \\
+\\
+% Math fonts
+$\mathrm{Sans}$ \\
+$\mathit{Italic}$ \\
+$\mathbf{Bold}$ \\
+$\mathsf{Sans Serif}$ \\
+$\mathtt{Typewriter}$ \\
+$\mathcal{CALLIGRAPHIC}$ \\
+$\mathfrak{Fraktur \ German}$ \\
+\include{chapter1}		% Include chapter1.tex
+
+\underline{Underline} \\
+\verb|text| \\
+\verb "$$"\\
+$X_2 = 2$ \\  		% subscript
+$X^2 = 2$ \\   		% superscript
+$\backslash \ backslash $   \\
+$\sim \ Binds two words to be printed in the same line. $ 	\\
+
+\begin{table}[h]		% h = here, t = top, b = bottom, p = page
+	\begin{tabularx}{5cm}{|X|X|X|}
+		\hline      % to create a horizontal line
+		H1 & H2 & H3 \\
+		\hline
+		1  & 2  & 3  \\
+		4  & 5  & 6  \\
+		7  & 8  & 9  \\
+		\hline
+	\end{tabularx}
+\end{table}
+\end{document}

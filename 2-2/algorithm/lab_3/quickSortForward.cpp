@@ -10,29 +10,30 @@ void swap(int* a, int* b) {
 }
 
 int partition(vector<int>& arr, int low, int high) {
-    int pivot = arr[high];
-    int i = (low - 1);
-
-    for (int j = low; j <= high - 1; j++) {
-        cout << "Compare " << arr[j] << " and " << pivot << "\n";
-        if (arr[j] < pivot) {
+    int pivot = arr[low];
+    int i = low;
+    int j = high;
+    while (i < j) {
+        while (arr[i] <= pivot) {
             i++;
+            stepCount++;
+        }
+        while (arr[j] > pivot) {
+            j--;
+            stepCount++;
+        }
+        if (i < j) {
             swap(&arr[i], &arr[j]);
-            // cout << "Swap " << arr[i] << " and " << arr[j] << "\n";
-            show(arr);
         }
     }
-    cout << "Swap " << arr[i + 1] << " and " << arr[high] << "\n";
-    swap(&arr[i + 1], &arr[high]);
-
-    // Print pivot and array after partition
+    swap(&arr[low], &arr[j]);
     cout << "Pivot: " << pivot << "\n";
-    cout << "Array after partition: ";
-    for (int i = 0; i < arr.size(); i++)
+    for (int i = 0; i < arr.size(); i++) {
         cout << arr[i] << " ";
+    }
     cout << "\n\n";
     stepCount++;
-    return (i + 1);
+    return j;
 }
 
 void quickSort(vector<int>& arr, int low, int high) {
@@ -45,11 +46,6 @@ void quickSort(vector<int>& arr, int low, int high) {
     }
 }
 
-void printArray(vector<int>& arr) {
-    for (int i = 0; i < arr.size(); i++)
-        cout << arr[i] << " ";
-    cout << endl;
-}
 
 int main() {
     ifstream file("input.txt");
