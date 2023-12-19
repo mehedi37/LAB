@@ -1,0 +1,44 @@
+\documentclass[a4paper, 10pt]{book}
+\usepackage{asymptote, amsmath, amssymb, amsfonts, geometry, color, setspace}
+\usepackage{boxedminipage, multicol}
+\begin{document}
+    \tableofcontents
+    \columnseprule = 0.5mm
+
+    \chapter[Text Formatting]{Text Formatting}
+    \begin{multicols}{3}[apref]
+        this is a test whhdakjan kdnawdna ndlandnawl ndlan wlndwad\\
+        dkjawdnkjaw ndawdlk lawldkalwk dlkaw dkajwdbnjakw bdjawhd
+    \end{multicols}
+    \section[Paragraphs]{Paragraphs}
+
+    \begin{boxedminipage}[h]{1.2\textwidth} % 120% width of the text
+        \begin{verbatim}
+            \begin{multicols}{3}
+                this is a test whhdakjan kdnawdna ndlandnawl ndlan wlndwad\\
+                dkjawdnkjaw ndawdlk lawldkalwk dlkaw dkajwdbnjakw bdjawhd
+            \end{multicols}
+        \end{verbatim}
+    \end{boxedminipage}
+
+    \section[Footnotes]{Footnotes}
+    \begin{boxedminipage}[h]{1.2\textwidth} % 120% width of the text
+        \begin{verbatim}
+            \footnote{This is a footnote}
+        \end{verbatim}
+    \end{boxedminipage}
+    {Testing Purpose}\footnote{Test} \\
+    {Testing Purpose2}\footnote[1]{Test2}  % manually adding numbers
+
+    \renewcommand{\thefootnote}{\fnsymbol{footnote}} % changing footnote symbol
+    t3\footnote{Test3} \\
+    t4\footnote{Test4} \\
+    arabic\footnote{Test5}
+    arabic2\footnote{Test6}
+    arabic3\footnote{Test7}
+    arabic4\footnote{Test8}
+    arabic5\footnote{Test9}
+    arabic6\footnote{Test10}
+    \renewcommand{\footnote}{\endnote}  % endnotes package required
+    % test1\footnote{text}
+\end{document}

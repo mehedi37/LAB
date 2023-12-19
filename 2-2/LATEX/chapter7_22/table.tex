@@ -1,0 +1,257 @@
+\documentclass{book}
+\usepackage{longtable, tabularx, rotating, array, booktabs, multirow, wrapfig, lipsum, colortbl}
+
+\begin{document}
+\chapter{Tables}
+\begin{table}[!htbp]
+	\begin{tabularx}{0.8\linewidth}{|l|l|>{\raggedleft\arraybackslash}X|>{\raggedleft\arraybackslash}X|}
+		\hline
+		\multicolumn{2}{|X|}{\textbf{Item}} & \multicolumn{2}{|X|}{\textbf{Price}}                                  \\
+		\hline
+		\textbf{Animal}                     & \textbf{Description}                 & \textbf{Each} & \textbf{Total} \\
+		\hline
+		Gnat                                & per gram                             & 13.65         & 0.01           \\
+		\hline
+		                                    & each                                 & 0.01          &                \\
+		\hline
+		Gnu                                 & stuffed                              & 92.50         &                \\
+		\hline
+		Emu                                 & stuffed                              & 33.33         &                \\
+		\hline
+		Armadillo                           & frozen                               & 8.99          &                \\
+		\hline
+	\end{tabularx}
+\end{table}
+
+\begin{table}[!hbt]
+	\centering
+	\setlength{\extrarowheight}{4mm}
+	% \begin{tabular}{!{\vrule width 0.8mm}>{\bfseries}l|>{$}l<{$}!{\vrule width 0.8mm}}
+	\begin{tabular}{|l|>{$}l<{$}|}
+		\hline Length       & {\bf {In~Metre}}          \\
+		\hline 1 Millimeter & 10^{-3} \times \mathbf{X} \\		%Math mode is automatically applied for all rows in 2nd column%
+		\hline 1 Centimeter & 10^{-2}                   \\
+		\hline 1 Decimeter  & 10^{-1}                   \\
+		\hline 1 Decameter  & 10                        \\
+		\hline 1 Hectometer & 10^2                      \\
+		\hline 1 Kilometer  & 10^3                      \\
+		\hline
+	\end{tabular}
+\end{table}
+
+\section{Rotated Table:}
+\begin{table}[!hbt]
+	\centering
+	\begin{tabular}{|l|l|l|}
+		\hline
+		\textbf{Animal}     & \textbf{Description}    & \textbf{Price}        \\
+		\hline
+		Gnat                & per gram                & 13.65                 \\
+		\hline
+		\rotatebox{90}{Gnu} & \rotatebox{90}{stuffed} & \rotatebox{90}{92.50} \\
+		\hline
+		Emu                 & stuffed                 & 33.33                 \\
+		\hline
+		Armadillo           & frozen                  & 8.99                  \\
+		\hline
+	\end{tabular}
+\end{table}
+
+\newpage
+\section{Table with Sideways:}
+\begin{table}[!hbt]
+	\centering
+	\begin{tabular}{|c|c|c|}
+		\hline
+		\begin{sideways}\textbf{Animal}\end{sideways} & \begin{sideways}\textbf{Description}\end{sideways} & \begin{sideways}\textbf{Price}\end{sideways} \\
+		\hline
+		Gnat                                          & per gram                                           & 13.65                                        \\
+		\hline
+		Gnu                                           & stuffed                                            & 92.50                                        \\
+		\hline
+		Emu                                           & stuffed                                            & 33.33                                        \\
+		\hline
+		Armadillo                                     & frozen                                             & 8.99                                         \\
+		\hline
+	\end{tabular}
+\end{table}
+
+\begin{table}[!htb]
+	\centering
+	\begin{tabular}{|l|c|c|c|c|c|}
+		\hline
+		\multicolumn{2}{|c|}{\multirow{2}{*}{Aspects}} & \multicolumn{4}{c|}{Methods}                                             \\
+		\cline{3-6}
+		\multicolumn{2}{|l|}{}                         & Binomial Test                & Tangram & Stereoscope & BayesPrism        \\
+		\hline
+		\multirow{10}{*}{\rotatebox{90}{Total Number}} & Cell Type 0                  & 3381    & 25          & 1200       & 331  \\
+		                                               & Cell Type 1                  & 1903    & 40          & 3360       & 3468 \\
+		                                               & Cell Type 2                  & 3466    & 0           & 1357       & 2729 \\
+		                                               & Cell Type 3                  & 3468    & 40          & 1711       & 412  \\
+		                                               & Cell Type 4                  & 3406    & 64          & 1996       & 3458 \\
+		                                               & Cell Type 5                  & 2934    & 31          & 1512       & 1772 \\
+		                                               & Cell Type 6                  & 494     & 55          & 3463       & 3468 \\
+		                                               & Cell Type 7                  & 3159    & 30          & 2367       & 3467 \\
+		                                               & Cell Type 8                  & 3454    & 53          & 3275       & 3456 \\
+		                                               & Cell Type 9                  & 3281    & 18          & 1320       & 1451 \\
+		\hline
+		\multicolumn{2}{|c|}{Total Variables}          & 28,946                       & 356     & 21,443      & 23,962            \\
+		\multicolumn{2}{|c|}{Residual Error Mean}      & 3.04                         & 3.50    & 2.92        & 2.93              \\
+		\hline
+	\end{tabular}
+	\caption{Total Number of Each Cell Types for The Model}
+	\label{total_cell}
+\end{table}
+%------------------------------------------------------------
+\newpage
+\section{Wrap Table:}
+\begin{table}[!hbt]
+	%	r for right side, l for left side table %
+	% \begin{wraptable}{r}{0.5\textwidth}
+	\begin{wraptable}{l}{0.5\textwidth}
+		\centering
+		\caption{Wrap Table}\label{wrap-table}
+		\begin{tabular}{|l|l|l|}
+			\hline
+			\textbf{Animal} & \textbf{Description} & \textbf{Price} \\
+			\hline
+			Gnat            & per gram             & 13.65          \\
+			\hline
+			Gnu             & stuffed              & 92.50          \\
+			\hline
+			Emu             & stuffed              & 33.33          \\
+			\hline
+			Armadillo       & frozen               & 8.99           \\
+			\hline
+		\end{tabular}
+	\end{wraptable}
+	\lipsum[1-2]
+\end{table}
+% -------------------------------------------------
+\section{Color Table:}
+\newcolumntype{B}[2]
+{>{\columncolor{#1}[0.91\tabcolsep]}#2}
+\begin{table}[!hbt]
+	\centering
+	\begin{tabular}{|l|B{green}{l}|l|}
+		\hline
+		\textbf{Animal}                               & \textbf{Description} & \textbf{Price} \\
+		\hline	\rowcolor{red}[0.9\tabcolsep]
+		Gnat                                          & per gram             & 13.65          \\
+		\hline	\rowcolor[gray]{0.7}[0.91\tabcolsep]
+		Gnu                                           & stuffed              & 92.50          \\
+		\hline
+		Emu                                           & stuffed              & 33.33          \\
+		\hline
+		\cellcolor{blue} \textcolor{white}{Armadillo} & frozen               & 8.99           \\
+		\hline
+	\end{tabular}
+\end{table}
+% --------------------------------------------------------------------
+\newpage
+\section{side by side table:}
+\begin{table}[!hbt]
+	\centering
+	\begin{tabular}{|l|l|l|}
+		\hline
+		\textbf{Animal} & \textbf{Description} & \textbf{Price} \\
+		\hline
+		Gnat            & per gram             & 13.65          \\
+		\hline
+		Gnu             & stuffed              & 92.50          \\
+		\hline
+		Emu             & stuffed              & 33.33          \\
+		\hline
+		Armadillo       & frozen               & 8.99           \\
+		\hline
+	\end{tabular}
+	% \quad
+	\hfill
+	\begin{tabular}{|l|l|l|}
+		\hline
+		\textbf{Animal} & \textbf{Description} & \textbf{Price} \\
+		\hline
+		Gnat            & per gram             & 13.65          \\
+		\hline
+		Gnu             & stuffed              & 92.50          \\
+		\hline
+		Emu             & stuffed              & 33.33          \\
+		\hline
+		Armadillo       & frozen               & 8.99           \\
+		\hline
+	\end{tabular}
+\end{table}
+\section{long table:}
+it's a long table \\[6cm]
+\begin{longtable}{|l|l|l|}
+	\caption{Long Table}\label{long-table} \\
+	\hline
+	\textbf{Animal} & \textbf{Description} & \textbf{Price} \\
+	\hline
+	\endfirsthead
+	\multicolumn{3}{c}%
+	{\tablename\ \thetable\ -- \textit{Continued from previous page}} \\
+	\hline
+	\textbf{Animal} & \textbf{Description} & \textbf{Price} \\
+	\hline
+	\endhead
+	\hline \multicolumn{3}{r}{\textit{Continued on next page}} \\
+	\endfoot
+	\hline
+	\endlastfoot
+	Gnat            & per gram             & 13.65          \\
+	\hline
+	Gnu             & stuffed              & 92.50          \\
+	\hline
+	Emu\footnote{Just 1st Footnote}             & stuffed              & 33.33          \\
+	\hline
+	Armadillo       & frozen               & 8.99           \\
+	\hline
+	Gnat            & per gram             & 13.65          \\
+	\hline
+	Gnu             & stuffed              & 92.50          \\
+	\hline
+	Emu             & stuffed              & 33.33          \\
+	\hline
+	Armadillo       & frozen               & 8.99           \\
+	\hline
+	Gnat            & per gram             & 13.65          \\
+	\hline
+	Gnu             & stuffed              & 92.50          \\
+	\hline
+	Emu             & stuffed              & 33.33          \\
+	\hline
+	Armadillo       & frozen               & 8.99           \\
+	\hline
+	Gnat            & per gram             & 13.65          \\
+	\hline
+	Gnu             & stuffed              & 92.50          \\
+	\hline \footnote{Just 2nd Footnote}
+	Emu             & stuffed              & 33.33          \\
+	\hline
+	Armadillo       & frozen               & 8.99           \\
+	\hline
+	Gnat            & per gram             & 13.65          \\
+	\hline
+	Gnu             & stuffed              & 92.50          \\
+	\hline
+	Emu             & stuffed              & 33.33          \\
+	\hline
+	Armadillo       & frozen               & 8.99           \\
+	\hline
+	Gnat            & per gram             & 13.65          \\
+	\hline
+
+\end{longtable}
+\begin{table}[!hbt]
+    \begin{tabular}{|l|*{5}{c|}}
+        \hline \multirow{2}{*}{Name} & \multicolumn{4}{c|}{Subjects} & \multirow{2}{*}{Total} \\
+        \cline{2-5} & Maths & Physics & Chemistry & Biology & \\
+        \hline
+        \hline Robin & 80 & 68 & 60 & 57 & 265 \\
+        \hline Julie & 72 & 62 & 66 & 63 & 263 \\
+        \hline Robert & 75 & 70 & 71 & 69 & 285 \\
+        \hline
+    \end{tabular}
+\end{table}
+\end{document}

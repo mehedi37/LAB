@@ -1,0 +1,323 @@
+\documentclass[a4paper, 10pt]{book}
+\usepackage{ enumerate, tabularx, asymptote, amsmath, amssymb, amsfonts, geometry, color, setspace}
+\usepackage{pdflscape, rotating}
+
+\begin{document}
+\tableofcontents
+\chapter[Listing Items]{Listing}
+\section[Enumerate]{Enumerate}
+\begin{table}[!h]
+	\begin{tabularx}{10cm}{|X|X|}
+		\hline
+		code & output \\
+		\hline
+		\textbackslash begin\{enumerate\}   \newline
+		\textbackslash item First   \newline        % using \\ will change the input column
+		\textbackslash item Second  \newline
+		\textbackslash item Third   \newline
+		\textbackslash end\{enumerate\} \newline
+		     &
+		List will look like this
+		\begin{enumerate}
+			\item First
+			\item Second
+			\item Third
+		\end{enumerate}
+		\\
+		\hline
+	\end{tabularx}
+\end{table}
+
+\section[Nested Enumerate]{Nested Enumerate}
+\begin{table}[!h]
+	\begin{tabularx}{15cm}{|X|X|}
+		\hline
+		\textbf{code} & \textbf{output} \\
+		\hline
+		\textbackslash begin\{enumerate\}   \newline
+		\textbackslash item First   \newline        % using \\ will change the input column
+		\textbackslash item Second  \newline
+		\textbackslash item Third   \newline
+		\textbackslash begin\{enumerate\}   \newline
+		\textbackslash item First   \newline        % using \\ will change the input column
+		\textbackslash begin\{enumerate\}   \newline
+		\textbackslash item Sub First   \newline        % using \\ will change the input column
+		\textbackslash begin\{enumerate\}   \newline
+		\textbackslash item Sub Sub First   \newline        % using \\ will change the input column
+		\textbackslash begin\{enumerate\}   \newline
+		\textbackslash item Sub Sub First   \newline        % using \\ will change the input column
+		\textbackslash item Sub Sub Second   \newline        % using \\ will change the input column
+		\textbackslash end\{enumerate\} \newline
+		\textbackslash item Sub Second   \newline        % using \\ will change the input column
+		\textbackslash item Sub Third   \newline        % using \\ will change the input column
+		\textbackslash end\{enumerate\} \newline
+		\textbackslash item Second  \newline
+		\textbackslash item Third   \newline
+		\textbackslash end\{enumerate\} \newline
+		\textbackslash end\{enumerate\} \newline
+		     &
+		List will look like this
+		\begin{enumerate}
+			\item First
+			\item Second
+			\item Third
+			      \begin{enumerate}
+				      \item Sub First
+				            \begin{enumerate}
+					            \item Sub First Sub
+					                  \begin{enumerate}
+						                  \item Sub Sub First
+						                        % \begin{enumerate} % This will give error
+						                        %     \item Super Sub First
+						                        %     \item
+						                        % \end{enumerate}
+						                  \item Sub Sub Second
+					                  \end{enumerate}
+					            \item Sub Second
+					            \item Sub Third
+				            \end{enumerate}
+				      \item Second
+				      \item Third
+			      \end{enumerate}
+		\end{enumerate}
+		\\
+		\hline
+	\end{tabularx}
+	\caption{Nested Enumerate}
+\end{table}
+
+\chapter[Unordered List]{Unordered List}
+\section{Itemize}
+\begin{table}[!h]
+    \begin{tabularx}{15cm}{|X|X|}
+        \hline
+        \textbf{code} & \textbf{output} \\
+        \hline
+        \textbackslash begin\{itemize\}   \newline
+        \textbackslash item First   \newline        % using \\ will change the input column
+        \textbackslash item Second  \newline
+        \textbackslash item Third   \newline
+        \textbackslash end\{itemize\} \newline
+             &
+        List will look like this
+        \begin{itemize}
+            \item First
+            \item Second
+            \item Third
+        \end{itemize}
+        \\
+        \hline
+    \end{tabularx}
+		\caption Itemize
+\end{table}
+
+\section{Nested Itemize}
+\begin{itemize}
+	\item First
+	\begin{itemize}
+		\item Sub First
+		\item Sub Second
+		\begin{itemize}
+			\item Sub Sub First
+			\item Sub Sub Second
+			\begin{itemize}
+				\item Sub Sub Sub First
+				% \begin{itemize}
+				% 	\item Sub Sub Sub First
+				% \end{itemize}
+				\item Sub Sub Sub Second
+			\end{itemize}
+			\item Sub Sub Third
+			\item Sub Sub Fourth
+		\end{itemize}
+		\item Sub Third
+	\end{itemize}
+	\item Second
+	\item Third
+\end{itemize}
+
+\subsection{Point Names in \textcolor{red}{Itemize}}
+\begin{itemize}
+	\item[$\bullet$] bullet
+	\item[$\circ$] circ
+	\item[$\ast$] ast
+\end{itemize}
+
+\subsection{Unordered Points in \textcolor{red}{Description}}
+\begin{description}
+	\item[$\bullet$] bullet
+	\item[$\rightarrow$] rightarrow
+	\item[$\leftarrow$] leftarrow
+	\item[$\Rightarrow$] Rightarrow
+	\item[$\Leftarrow$] Leftarrow
+	\item[$\diamond$] diamond
+	\item[$\Leftrightarrow$] Leftrightarrow
+	\item[$\leftrightarrow$] leftrightarrow
+	\item[$\blacksquare$] blacksquare
+	\item[$\bigstar$] bigstar
+	\item[$\Rightarrow$] Rightarrow
+	\item[--] hyphen (--)
+	\item[NOTE:] This is not a complete list
+	\item[!]  Exclamation mark
+\end{description}
+
+\subsection{Ordered Points in \textcolor{red}{Description}}
+\begin{description}
+	\item[1.] First
+	\item[2] Second
+	\item[(3)] Third
+	\item[(a)] a with round bracket
+	\item[(B)] B with round bracket
+	\item[(i)] roman with round bracket
+	\item test, will it continue from previous number
+	\item[!] \textcolor{red}{No it will not continue from previous number.}
+\end{description}
+
+\chapter[ Renewcommand In List]{Renewcommand In List}
+\section{Renewcommand Type: 1, In \textcolor{red}{Enumerate}}
+
+\subsection{Understandin Renewcommand In \textcolor{red}{Enumerate}}
+\textbf{Note:} \textcolor{red}{\textbackslash renewcommand}
+\{\textbackslash labelenumi\}\{\textbackslash arabic\{enumi\}.\}
+\begin{itemize}
+	\item \textbackslash label \textcolor{red}{\textbf{enum}} = enum and \textcolor{red}{\textbf{i}} = level of list i = 1, ii = 2, iii = 3, iv = 4
+	\item \textbackslash arabic\{enumi\} = 1, 2, 3, 4
+	\item \textbackslash alph\{enumi\} = a, b, c, d
+	\item \textbackslash Alph\{enumi\} = A, B, C, D
+	\item \textbackslash roman\{enumi\} = i, ii, iii, iv
+	\item \textbackslash Roman\{enumi\} = I, II, III, IV
+	\item Now the separators are used as dot (.) or bracket ().
+	\item like \textbackslash labelenumi\{\textcolor{red}{(}\textbackslash alph\{enumi\}\textcolor{red}{)}\} will give (a), (b), (c), (d) \\\\
+\end{itemize}
+
+
+\subsection{Renewcommand Example In \textcolor{red}{Enumerate}}
+\renewcommand{\labelenumi}{\Roman{enumi}.}
+\renewcommand{\labelenumii}{\Roman{enumi}.(\arabic{enumii})}
+\renewcommand{\labelenumiii}{\Roman{enumi}.(\arabic{enumii})\arabic{enumiii}}
+\renewcommand{\labelenumiv}{\Roman{enumi}.(\arabic{enumii})\arabic{enumiii}.(\arabic{enumiv})}
+
+\begin{enumerate}
+	\item The Dot at the last of renewcommand is required to declare how the list will be presented
+	\begin{enumerate}
+		\item Sub First
+		\item Sub Second
+		\begin{enumerate}
+			\item Sub Sub First
+			\item Sub Sub Second
+			\begin{enumerate}
+				\item Sub Sub Sub First
+				\item Sub Sub Sub Second
+			\end{enumerate}
+			\item Sub Sub Third
+			\item Sub Sub Fourth
+		\end{enumerate}
+		\item Sub Third
+	\end{enumerate}
+	\item Second
+	\item Third
+\end{enumerate}
+
+\section{Renewcommand type: 2 In \textcolor{red}{Enumerate}}
+\subsection{  \textcolor{red}{\textbackslash theenum}  in Renewcommand}
+\textbf{Command:} \textbackslash renewcommand\{\textbackslash labelenumi\}\{Q.\textbackslash theenumi: \}
+\begin{enumerate}
+	\item \textbackslash theenum = number of list
+	\item Q. is the prefix of the list = Q.1, Q.2, Q.3, Q.4
+\end{enumerate}
+\subsection{Renewcommand Example In \textcolor{red}{Enumerate}}
+
+\renewcommand{\labelenumi}{Q.\theenumi:}
+\renewcommand{\labelenumii}{.\theenumii:}
+
+\textbf{Question of CT:}
+\begin{enumerate}
+	\item First Question 	\hfill 5 marks
+	\begin{enumerate}
+		\item This will be the same as the previous, because we used for enum\textcolor{red}{i} only
+	\end{enumerate}
+	\item Second Question	\hfill 5 marks
+	\item Third Question	\hfill 5 marks
+\end{enumerate}
+
+\newpage
+\section{New Numbering style: }
+\begin{enumerate}[{\bf Q.1 :}]
+	\item test
+	\item test2
+	\begin{enumerate} [{\bf {A}ns (a):}]
+		\item Ans1
+		\begin{enumerate}	[{\bf Sub {A}ns (i):}]
+			\item sub ans 1
+			\item sub ans 2
+		\end{enumerate}
+		\item Ans2
+	\end{enumerate}
+\end{enumerate}
+
+\newpage
+\section{Renewcommand In \textcolor{red}{Itemize}}
+
+\textbf{Code:} \textbackslash renewcommand\{\textbackslash labelitemi\}\{\textbackslash textbf\{--\}\}
+\begin{itemize}
+	\item label and then \textcolor{red}{item} and then \textcolor{red}{i} = 1st level of items
+\end{itemize}
+
+\renewcommand{\labelitemi}{\textcolor{red}{\textbf{--} $\rightarrow$}}	% multiple types can be combined
+\renewcommand{\labelitemii}{\textcolor{red}{$\bigstar$}}	% previous levels types can also be used
+\renewcommand{\labelitemiii}{\labelitemi \textcolor{yellow}{$\Diamond$}}  % try $\diamond$
+\renewcommand{\labelitemiv}{\textcolor{yellow}{$\blacksquare$}}
+
+
+\begin{itemize}
+	\item Multiple types can be combined
+	\item It has \textbf{Double Hyphen (-\@-)} and \verb|$\rightarrow\$| commands combined
+	\begin{itemize}
+		\item Sub First
+		\item Sub Second
+		\begin{itemize}
+			\item Previous levels types can also be used
+			\item Sub Sub Second
+			\begin{itemize}
+				\item \verb|$\blacksquare$| with color yellow
+				\item Sub Sub Sub Second
+			\end{itemize}
+			\item Sub Sub Third
+			\item Sub Sub Fourth
+		\end{itemize}
+		\item Sub Third
+	\end{itemize}
+	\item Third
+\end{itemize}
+
+
+
+% Tabbing Section
+\chapter[Tabbing]{Tabbing}
+\section{Tabbing}
+\begin{table}[!h]
+    \begin{tabularx}{15cm}{|X|X|}
+        \hline
+        \textbf{code} & \textbf{output} \\
+        \hline
+        \textbackslash begin\{tabbing\}   \newline
+        \textbackslash hspace\{2cm\} \textbackslash = \textbackslash hspace\{2cm\} \textbackslash= \textbackslash hspace\{2cm\} \textbackslash= \textbackslash kill \newline
+        1\textbackslash =~First \textbackslash kill \verb|\= is only for the 1st item|  \newline   % using \\ will change the input column
+        2\textbackslash \textgreater Second \textbackslash kill \newline  % using \\ will change the input column
+        3\textbackslash \textgreater Third \textbackslash kill \newline   % using \\ will change the input column
+        \textbackslash end\{tabbing\} \newline
+
+             &
+        List will look like this
+        \begin{tabbing}
+            \hspace{2cm} \= \hspace{2cm} \= \hspace{2cm} \= \kill
+            1\> First \\
+            2\> Second \\
+            3\> Third   \\
+            \>1\'2 \\
+        \end{tabbing}
+        \\
+        \hline
+    \end{tabularx}
+\end{table}
+\end{document}

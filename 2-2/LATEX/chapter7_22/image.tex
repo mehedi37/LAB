@@ -1,0 +1,168 @@
+\documentclass{book}
+\usepackage{pict2e, curves, graphicx, xcolor, subfigure, tabularx, wrapfig, lipsum}
+\begin{document}
+\begin{figure}[!htbp]
+	\includegraphics[width=0.2\textwidth]{image.png} \hfill
+	\includegraphics[width=0.2\textwidth]{image.png}
+	\caption{A sample image}
+	\label{fig:image}
+\end{figure}
+\begin{figure}[!htbp]
+	\centering
+	\includegraphics[angle=40, width=0.5\linewidth,height=0.5\linewidth]{image.png}
+	\caption{A sample image at an angle of 40 degrees}
+\end{figure}
+% ------------------------Sub Figure--------------------------------
+\newpage
+\section*{\underline{Sub Figure:}}
+\begin{figure}[!htbp]
+	\centering
+	\subfigure[First subfigure]
+	{
+		\includegraphics[width=0.2\textwidth]{image.png}
+		\label{fig:first}
+	} \hfill
+	\subfigure[Second subfigure]
+	{
+		\includegraphics[width=0.3\textwidth]{image.png}
+		\label{fig:second}
+	} \\
+	\subfigure[Third subfigure]
+	{
+		\includegraphics[width=0.5\textwidth]{image.png}
+		\label{fig:third}
+	}
+	\caption{A sample image}
+\end{figure}
+% ------------------------Sub Figure--------------------------------
+
+% ------------------------ReNew sub figure--------------------------
+\newpage
+\section*{\underline{ReNew sub figure:}}
+\renewcommand{\thesubfigure}{(\roman{subfigure}).}
+\begin{figure}[!htbp]
+	\centering
+	\subfigure[First subfigure]
+	{
+		\includegraphics[width=0.2\textwidth]{image.png}
+		\label{fig:first}
+	} \hfill
+	\subfigure[Second subfigure]
+	{
+		\includegraphics[width=0.3\textwidth]{image.png}
+		\label{fig:second}
+	} \\
+	\subfigure[Third subfigure]
+	{
+		\includegraphics[width=0.5\textwidth]{image.png}
+		\label{fig:third}
+	}
+	\caption{A sample image}
+\end{figure}
+% ------------------------Wrap figure--------------------------
+\newpage
+\section*{\underline{Wrap figure:}}
+% \begin{wrapfigure}[10]{r}{0.5\textwidth}		% 10: number of lines to be wrapped
+\begin{wrapfigure}{r}{0.5\textwidth}
+	\centering
+	\includegraphics[width=0.5\textwidth]{image.png}
+	\caption{A sample image}
+\end{wrapfigure}
+\lipsum[1]
+% ------------------------Wrap figure --------------------------
+
+% ------------------------Picture Draw--------------------------
+\chapter{Draw Figures}
+\section{Picture}
+\begin{picture}(100,100)(0,0)		% (100,100): size of the picture, (0,0): position of the picture
+	\put(0,0){\line(1,0){100}}
+	\put(0,0){\line(0,1){100}}
+	\put(100,0){\line(0,1){100}}
+	\put(0,100){\line(1,0){100}}
+	\put(50,50){\circle{50}}
+
+	\put(25,60){\circle{25}}
+	\linethickness{4pt}
+	\put(25,60){\textcolor{red}{\circle{15}}}
+
+	\linethickness{1pt}
+	\put(75,60){\circle{25}}
+	\linethickness{4pt}
+	\put(75,60){\textcolor{red}{\circle{15}}}
+
+	\linethickness{1pt}
+	\put(50,50){\circle{25}}
+	\put(50,50){\circle*{20}}
+\end{picture}
+% ------------------------Picture Draw--------------------------
+
+% ------------------------ Line --------------------------
+\section{Line}
+\setlength{\unitlength}{0.75mm}
+\begin{picture}(60,30)(0,0)		% (60,30): size of the picture, (0,0): position of the picture
+\put(5,5){\line(0,1){20}}
+\put(15,15){\line(1,0){20}}
+\put(45,25){\line(1,-1.5){15}}	% (1,-1.5) = slope & 15 = length of the line
+\thicklines
+\put(15,-1){\vector(1,0){40}}
+\end{picture}
+% ------------------------ Line --------------------------
+\section{MultiPuts}
+\begin{picture}(60,30)(0,0)		% (60,30): size of the picture, (0,0): position of the picture
+\multiput(0,0)(10,0){3}{\circle*{2}}
+\multiput(0,10)(10,0){3}{\circle*{2}}
+\multiput(0,20)(10,0){3}{\circle*{2}}
+\multiput(10, -5)(10,10){3}{\line(1, -1){8}}
+\multiput(10, -5)(10,10){3}{\vector(-1, -1){8}}
+\end{picture}
+% ------------------------ Line --------------------------
+
+% ------------------------ Make box --------------------------
+\section{Make box}
+\begin{picture}(60,30)(0,0)		% (60,30): size of the picture, (0,0): position of the picture
+\put(0,0){\framebox(60,30){}}
+\put(0,0){\framebox(30,15){}}
+\put(30,15){\framebox(30,15){}}
+\end{picture}
+\\[2cm]
+\setlength{\unitlength}{1mm}
+\begin{picture}(55,60)(0,0)
+\put(5,55){\framebox(20,5)[c]{(5,55)}}
+\put(5,45){\framebox(20,5)[t]{(5,45)}}
+\put(5,35){\framebox(20,5)[b]{(5,35)}}
+\put(5,25){\framebox(20,5)[l]{(5,25)}}
+\put(5,15){\framebox(20,5)[r]{(5,15)}}
+\put(5,5){\framebox(11,5)[l]{Square box}}
+%
+\put(30,55){\dashbox{1.5}(20,5)[c]{(30,55)}}
+% 1.5: length of the dashes, (20,5): size of the box,
+% [c]: position of the text, (30,55): it is the display text
+\put(30,45){\dashbox{0.5}(20,6)[t]{(30,45)}}
+\put(30,35){\dashbox{0.5}(20,5)[b]{(30,35)}}
+\put(30,25){\dashbox{0.5}(20,5)[l]{(30,25)}}
+\put(30,15){\dashbox{0.5}(20,5)[r]{(30,15)}}
+\put(30,5){\dashbox{0.5}(11,5)[l]{Square box}}
+\end{picture}
+% ------------------------ Make box --------------------------
+
+% ------------------------ Complex Fig --------------------------
+\section{Complex Fig}
+\begin{picture}(20,20)(0,0)
+	\multiput(5,5)(5,10){2}{\line(1,0){20}}
+	% (5,5): start point, (5,10): slope, {2}: number of lines, {20}: length of the line
+	% (5, 5) = starting point
+	% (5, 10) = distance between two lines
+	\multiput(5,5)(20,0){2}{\line(1,2){5}}
+\end{picture}
+
+\begin{picture}(85,45)(0,0)
+	\curve(0,20, 5,40, 10,20)
+	\curve(10,20, 15,0, 20,20)
+	\curve(20,20, 25,35, 30,20)
+	\curve(30,20, 35,5, 40,20)
+	\curve(40,20, 45,30, 50,20)
+	\curve(50,20, 55,10, 60,20)
+	\curve(60,20, 65,25, 70,20)
+	\curve(70,20, 75,15, 80,15)
+\end{picture}
+\end{document}

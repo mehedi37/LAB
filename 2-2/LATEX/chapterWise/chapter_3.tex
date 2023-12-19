@@ -1,0 +1,136 @@
+\documentclass[a4paper, 10pt]{report}
+\usepackage{tabularx, graphicx, amsmath, varioref, amssymb, amsfonts, geometry, color, setspace}
+\begin{document}
+% \input{chapterWise/chapter1.tex}
+\tableofcontents
+\chapter[Chapter Oppenheimer]{Chapter One Modern Physics} \label{chap:ChapterOppenheimer1}
+This chapter is about modern physics. Inspired from film Oppenheimer.
+\section{Section of Hyped Movies}
+Some movies also released at the same time got overhyped.
+\subsection{Which Movies?}
+Let's see the Movies \ref{table:Movie_Table} below.
+% link the reference to the table
+
+\subsubsection{Movies List:}
+\begin{table}[h!]
+
+	\centering    % center the table
+
+	\begin{tabularx}{10cm}{|X|X|X|}
+		\hline
+		Movie SL. & Movie Name    & Rating \\
+		\hline
+		1         & Barbie        & 2.0    \\
+		2         & Doraemon      & 3.0    \\
+		3         & Shinchan      & 4.0    \\
+		4         & Tom and Jerry & 5.0    \\
+		5         & Pokemon       & 6.0    \\
+		6         & Dragon Ball Z & 7.0    \\
+		7         & Naruto        & 8.0    \\
+		\hline
+	\end{tabularx}
+	\caption{Table One}
+	\label{table:Movie_Table}     % label the table
+	% end centering
+\end{table}
+
+\begin{quotation}
+	% ` is used for single quote backward
+	\begin{spacing}{1.5}
+		\texttt {This movie has \textbf{`BAD SCENES'}, so we can watch together after you have passed
+			that scene.}
+		\begin{flushright}
+			\textit{- Sadia Rahman Sharna\\}
+		\end{flushright}
+	\end{spacing}
+\end{quotation}
+
+\chapter[Just Chapter Two]{Chapter Two} \label{chap:Chapter2}
+This chapter is about chapter two.
+\section{Section of Chapter Two}
+This is chapter one page reference PageRef: \pageref{chap:ChapterOppenheimer1}. \\
+This is chapter one page reference \vpageref[labeling on the same page][ ``labeling on the different page" ]{chap:ChapterOppenheimer1}. \\
+This is chapter one page reference \vpageref[``labeling on the same page"][ ``labeling on the different page" ]{chap:Chapter2}. \\
+This is chapter one page reference VRef: \vref{chap:ChapterOppenheimer1}. \\
+This ref type is different for Book and reports. \\[2mm]
+This line is after 2mm vertical space. \\
+
+\chapter[Paragraphs]{Paragraphs} \label{chap:Chapter3}
+\section[creating new paragraphs]{Creating New Paragraphs}
+\par {This is a \verb|\par| command.} \\    % bolded
+This is a \textbackslash par command. \\
+
+\par \noindent \parskip = 2mm {This is a \verb|\par \noindent \parskip = 2mm| command. \\
+		Delt with paragraph \\
+		Total 2mm spacing from before paragraph ! \\
+		\verb|\parskip| is \textcolor{red}{Global}. So every paragraph or subparagraph under it same space is applied !} \\
+\subparagraph{1) subparagraph}  This is a \verb|\subparagraph| command. \\    % bolded
+
+\chapter[Spacing]{Spacing}
+\section{All spacing commands}
+\begin{table}[h!]
+	\begin{tabularx}{15cm}{|X|X|X|}
+		\hline
+		Command       & Description                                 & Example     \\
+		\hline
+		\verb|\,|     & Thin space                                  & $x\,y$      \\[3mm]
+		\verb|\:|     & Medium space                                & $x\:y$      \\[3mm]
+		\verb|\;|     & Thick space                                 & $x\;y$      \\[3mm]
+		\verb|\!|     & Predefined horizontal negative thin space   & $S\!M$      \\[3mm]
+		\verb|\!\! |  & Predefined horizontal negative medium space & $M\!\!S$    \\[3mm]
+		\verb|\!\!\!| & Predefined horizontal negative thick space  & $M\!\!\!S$  \\[3mm]
+		\verb|\quad|  & Predefined horizontal single space          & $x\quad y$  \\[3mm]
+		\verb|\qquad| & Predefined horizontal double space          & $x\qquad y$ \\[3mm]
+		\hline
+	\end{tabularx}
+	\caption{Spacing Commands}
+	\label{table:Spacing_Commands}
+\end{table}
+
+\newpage
+\section{Custom Blank Space}
+\begin{table}[h!]
+	\begin{tabularx}{18cm}{|X|X|X|}
+		\hline
+		Command                                                  & Description             & Example                                 \\
+		\hline
+		\textbackslash bigskip                                   & Vertical space of 12pt  & \begin{center}
+			                                                                                     \LaTeX\ in 24 Hours\bigskip\\
+			                                                                                     A Practical Guide for Scientific Writing
+		                                                                                     \end{center} \\[3mm]
+		\hline
+		\textbackslash vskip 8mm or \textbackslash vspace\{8mm\} & vertical space of 8mm   & \begin{center}
+			                                                                                     \LaTeX\ in 24 Hours
+			                                                                                     \vskip 8mm
+			                                                                                     A Practical Guide for Scientific Writing
+		                                                                                     \end{center} \\[3mm]
+		\hline
+		\textbackslash hspace\{2cm\}                             & Horizontal space of 2cm & Writing language: \hspace{5mm} English. \\[3mm]
+		\hline
+		\textbackslash hfill                                     & Fills the space between & Marks: 100 \hfill Time: 3 Hours.        \\[3mm]
+		\hline
+	\end{tabularx}
+	\caption{Custom Spacing Commands}
+	\label{table:Custom_Spacing_Commands}
+\end{table}
+
+\chapter[LineBreaks]{Line Breaks Prevent}
+\section{Line Breaks}
+\textcolor{red}{\textbackslash\textbackslash} is used for line break. \\
+\textcolor{red}{\textbackslash newline} is used for line break. \\
+\textcolor{red}{\textbackslash newpage} is used for page break. \\
+
+\section{Line Breaks Prevent}
+\textcolor{red}{\textbackslash mbox\{text\}} is used for line break prevent. \\
+\textcolor{red}{\texttildelow},  \textcolor{red}{\textbackslash ,} and \textcolor{red}{\textbackslash nolinebreak} are used to prevent line breaks. \\
+
+\begin{verbatim}
+	\begin{document}
+	\mbox{This is a line break prevent command.}
+	\texttildelow This is a line break prevent command.
+	\, This is a line break prevent command.
+	\nolinebreak This is a line break prevent command.
+	\end{document}
+\end{verbatim}
+
+\end{document}

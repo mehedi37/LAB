@@ -3,7 +3,7 @@
 \begin{document}
 % \input{chapterWise/chapter1.tex}
 \tableofcontents
-\chapter[Chapter Oppenheimer]{Chapter One Modern Physics} \label{chap:ChapterOppenheimer}
+\chapter[Chapter Oppenheimer]{Chapter One Modern Physics} \label{chap:ChapterOppenheimer1}
 This chapter is about modern physics. Inspired from film Oppenheimer.
 \section{Section of Hyped Movies}
 Some movies also released at the same time got overhyped.
@@ -45,12 +45,13 @@ Let's see the Movies \ref{table:Movie_Table} below.
   \end{spacing}
 \end{quotation}
 
-\chapter[Just Chapter Two]{Chapter Two}
+\chapter[Just Chapter Two]{Chapter Two} \label{chap:Chapter2}
 This chapter is about chapter two.
 \section{Section of Chapter Two}
-This is chapter one page reference PageRef: \pageref{chap:ChapterOppenheimer}. \\
-This is chapter one page reference \vpageref[Reference Description, Not Printed][VPageRef:]{chap:ChapterOppenheimer}. \\
-This is chapter one page reference VRef: \vref{chap:ChapterOppenheimer}. \\
+This is chapter one page reference PageRef: \pageref{chap:ChapterOppenheimer1}. \\
+This is chapter one page reference \vpageref[labeling on the same page][ ``labeling on the different page" ]{chap:ChapterOppenheimer1}. \\
+This is chapter one page reference \vpageref[``labeling on the same page"][ ``labeling on the different page" ]{chap:Chapter2}. \\
+This is chapter one page reference VRef: \vref{chap:ChapterOppenheimer1}. \\
 This ref type is different for Book and reports. \\[2mm]
 This line is after 2mm vertical space. \\
 \end{document}
