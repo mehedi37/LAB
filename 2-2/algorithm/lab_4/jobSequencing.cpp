@@ -1,4 +1,5 @@
 #include <bits/stdc++.h>
+#include <windows.h>
 using namespace std;
 
 // A structure to represent a job
@@ -19,7 +20,7 @@ void printJobScheduling(Job arr[], int n) {
     // Sort all jobs according to decreasing order of profit
     sort(arr, arr + n, comparison);
 
-    int result[n]; // To store result (Sequence of jobs)
+    int result[n]{0}; // To store result (Sequence of jobs)
     bool slot[n]; // To keep track of free time slots
 
     // Initialize all slots to be free
@@ -41,9 +42,12 @@ void printJobScheduling(Job arr[], int n) {
     }
 
     // Print the result
+    SetConsoleOutputCP(CP_UTF8);
     for (int i = 0; i < n; i++)
         if (slot[i])
-            cout << arr[result[i]].id << " ";
+            cout << "✅ Slot: " << i+1 << " For Job: " << arr[result[i]].id << "\n";
+        else
+            cout << "❌ Slot: " << i+1 << " Is Empty" << "\n";
 }
 
 // Driver's code

@@ -7,8 +7,7 @@ public:
 };
 Point p0;
 
-Point nextToTop(stack<Point> &S)
-{
+Point nextToTop(stack<Point> &S) {
   Point p = S.top();
   S.pop();
   Point res = S.top();
@@ -16,13 +15,11 @@ Point nextToTop(stack<Point> &S)
   return res;
 }
 
-int distSq(Point p1, Point p2)
-{
+int distSq(Point p1, Point p2) {
   return (p1.x - p2.x) * (p1.x - p2.x) + (p1.y - p2.y) * (p1.y - p2.y);
 }
 
-int orientation(Point p, Point q, Point r)
-{
+int orientation(Point p, Point q, Point r) {
   /*
     distance matrix
     | q.x - p.x  r.x - p.x |
@@ -39,8 +36,7 @@ int orientation(Point p, Point q, Point r)
   return (val > 0) ? 1 : 2;
 }
 
-int compare(const void *vp1, const void *vp2)
-{
+int compare(const void *vp1, const void *vp2) {
   Point *p1 = (Point *)vp1;
   Point *p2 = (Point *)vp2;
   int o = orientation(p0, *p1, *p2);

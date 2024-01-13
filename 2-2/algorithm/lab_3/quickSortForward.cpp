@@ -47,17 +47,29 @@ void quickSort(vector<int>& arr, int low, int high) {
 }
 
 
+// int main() {
+//     ifstream file("input.txt");
+//     vector<int> arr;
+//     int x;
+//     while (file >> x) {
+//         arr.push_back(x);
+//     }
+//     int n = arr.size();
+//     quickSort(arr, 0, n - 1);
+//     cout << "Step count for " << arr.size() << " data to quick sort: " << stepCount << endl;
+//     // cout << "Sorted array: \n";
+//     // printArray(arr);
+//     return 0;
+// }
+
 int main() {
-    ifstream file("input.txt");
     vector<int> arr;
     int x;
-    while (file >> x) {
+    while (cin >> x) {
         arr.push_back(x);
     }
     int n = arr.size();
     quickSort(arr, 0, n - 1);
     cout << "Step count for " << arr.size() << " data to quick sort: " << stepCount << endl;
-    // cout << "Sorted array: \n";
-    // printArray(arr);
     return 0;
 }

@@ -14,15 +14,15 @@ int partition(vector<int>& arr, int low, int high) {
     int i = (low - 1);
 
     for (int j = low; j <= high - 1; j++) {
-        cout << "Compare " << arr[j] << " and " << pivot << "\n";
+        // cout << "Compare " << arr[j] << " and " << pivot << "\n";
         if (arr[j] < pivot) {
             i++;
             swap(&arr[i], &arr[j]);
             // cout << "Swap " << arr[i] << " and " << arr[j] << "\n";
-            show(arr);
+            // show(arr);
         }
     }
-    cout << "Swap " << arr[i + 1] << " and " << arr[high] << "\n";
+    // cout << "Swap " << arr[i + 1] << " and " << arr[high] << "\n";
     swap(&arr[i + 1], &arr[high]);
 
     // Print pivot and array after partition
