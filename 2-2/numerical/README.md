@@ -19,6 +19,7 @@
 - `matplotlib`
 - `scipy`
 - `sympy`
+
 You can install them using:
 ```bash
 pip install pandas numpy matplotlib scipy sympy
