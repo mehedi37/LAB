@@ -13,8 +13,8 @@ def difference_table(population):
         delta.append([])
         for j in range(len(population)-i-1):
             delta[i+1].append(delta[i][j+1] - delta[i][j])
-    print("Delta table:")
-    print(delta)
+    # print("Delta table:")
+    # print(delta)
     return delta
 
 
@@ -39,7 +39,7 @@ def find_the_polynomial(delta, years, population):
     # Simplify the expression
     eqn = simplify(eqn)
     derivative = diff(eqn, x)
-    print(f"\n\nEquation: {eqn}\n\nDerivative: {derivative}")
+    print(f"\n\nEquation: {eqn}\n\nDerivative: {derivative}\n\n")
 
     return [eqn, derivative]
 
