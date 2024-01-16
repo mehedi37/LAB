@@ -21,5 +21,5 @@
 - `sympy`
 
 You can install them using:
-```bash
+```python
 pip install pandas numpy matplotlib scipy sympy
