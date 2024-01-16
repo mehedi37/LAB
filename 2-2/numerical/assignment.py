@@ -108,7 +108,9 @@ def curve_fitting(eqn, years, population):
 
 
 if __name__ == "__main__":
-    data = pd.read_csv('c:\\Users\\mjmeh\\Documents\\Github\\LAB\\2-2\\numerical\\data.csv')
+    # data = pd.read_csv('c:\\Users\\mjmeh\\Documents\\Github\\LAB\\2-2\\numerical\\data.csv')
+    url = 'https://raw.githubusercontent.com/mehedi37/LAB/main/2-2/numerical/data.csv'
+    data = pd.read_csv(url)
 
     years = data[data.columns[0]].tolist()
     population = data[data.columns[1]].tolist()
