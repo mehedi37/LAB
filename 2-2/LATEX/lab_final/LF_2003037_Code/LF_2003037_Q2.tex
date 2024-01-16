@@ -1,0 +1,32 @@
+\documentclass[a4paper, 10pt]{article}
+\usepackage{ enumerate, tabularx, asymptote, amsmath, amssymb, amsfonts, geometry, color, setspace}
+\usepackage{pdflscape, rotating, ulem, cite}
+\usepackage[numbers]{natbib}
+\renewcommand{\bibname}{References}
+
+\begin{document}
+This research work is focused on detecting low-grade glioma tumorous cells \\
+in MRI images. Glioma is a common brain tumor, that exhibits properties of \\
+benign tumors\cite{wadhwa2019review}. We used the TCGA-LGG Segmentation dataset\cite{buda2019association} for our \\
+research. It consists of 3929 brain tumor images and corresponding FLAIR \\
+abnormality segmentation masks obtained from 110 patients. \\
+\indent Table 1: lists the models used as encoder for U-net architecture.\\
+
+\begin{table}[h!]
+    \noindent\caption{Models used for U-net encoder and trainable blocks/ stages for fine-\\tuning.}
+    \vspace{2mm} % Adjust the vertical space
+    \begin{tabularx}{\linewidth}{>{\centering\arraybackslash}X >{\centering\arraybackslash}X >{\centering\arraybackslash}X}
+        \hline
+        \textbf{Family} & \textbf{Model} & \textbf{Trainable Blocks}\\
+        \hline
+        EfficientNet & EfficientNetB0 to B7 & Block 30 to 32\\
+        DenseNet & DenseNet169, DenseNet201 & Block 7\\
+        ResNet & ResNet18, ResNet50, ResNet101& Stage 4\\
+        \hline
+    \end{tabularx}
+\end{table}
+
+\bibliographystyle{ieeetr}
+\bibliography{LF}
+\copyright \emph{2003037}
+\end{document}

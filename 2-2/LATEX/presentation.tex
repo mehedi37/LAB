@@ -1,0 +1,102 @@
+% %  Book 206 page
+
+% \documentclass{beamer}
+% \usetheme{JuanLesPins}
+% % Components of the title page
+% \title[\LaTeX\ in 24H]{\LaTeX\ in Twenty Four Hours}
+% \subtitle{A Practical Guide for Scientific Writing}
+% \author[D. Datta]{Dilip Datta}
+% \institute[\LaTeX-LT]{\LaTeX\ Learners Team}
+% \date[L24H :: 21-06-2016]{June 21, 2016}
+% %
+% \begin{document}
+% % Frame 1
+% \frame[plain]{\titlepage}
+% % Frame 2
+% \section*{Outline}
+% \frame[t]{ \frametitle{Presentation outline} \tableofcontents }
+% % Frames 3 and 4
+% \section[Introduction]{Introduction to \LaTeX}
+% \subsection[Definition]{Definition of \LaTeX}
+% \frame[t]
+% { \frametitle{Introduction to \LaTeX} \framesubtitle{What is \LaTeX?}
+% 	\begin{itemize}
+% 		\item \LaTeX\ is a macro-package for typesetting documents.
+% 		\item \LaTeX\ instructions are interspersed with …
+% 		\item \LaTeX\ input files have .tex extension.
+% 		\item \LaTeX\ output can be obtained in .dvi or .pdf format.
+% 	\end{itemize}
+% }
+% \subsection[Resources]{Resources on \LaTeX}
+% \begin{frame}[t]
+% 	\frametitle{Introduction to \LaTeX} \framesubtitle{Some popular books on \LaTeX}
+% 	\begin{enumerate}
+% 		\item The \LaTeX\ Companion by
+% 		\item A Guide to \LaTeX2$_\varepsilon$ by
+% 		\item \LaTeX: User’s Guide and Reference Manual by
+% 	\end{enumerate}
+% \end{frame}
+% % Frame 5
+% \section*{ }
+% \begin{frame}[t]
+% 	\frametitle{References}
+% \end{frame}
+% % Frame 6
+% \section*{ }
+% \begin{frame}
+% 	\begin{center}
+% 		\Large{\bf\textcolor{blue}{Thanks a lot}}\\[5mm] … \end{center}
+% \end{frame}
+% \begin{frame}[t]
+% 	\frametitle{Seasons over the year} \pause
+% 	\begin{enumerate}
+% 		\item Summer \pause
+% 		\item Autumn \pause
+% 		\item Winter \pause
+% 		\item Spring.
+% 	\end{enumerate}
+% \end{frame}
+% \end{document}
+
+\documentclass{beamer}
+\usetheme{JuanLesPins}
+\usepackage[sort]{natbib}
+
+\begin{document}
+\begin{frame}[t]
+	\begin{block}{Rule}
+		The amsmath and amssymb …
+	\end{block}
+	%
+	\begin{alertblock}<2->{Warning}
+		A mathematical expression …
+	\end{alertblock}
+	%
+	\begin{exampleblock}{Example}<3->
+		$\sin^2\theta + \cos^2\theta = 1$
+	\end{exampleblock}
+\end{frame}
+\begin{frame}[t]
+	\frametitle{Seasons}
+	\begin{enumerate}[<+-|alert@+>]
+		\item Summer
+		\item Autumn
+		\item Winter
+		\item Spring.
+	\end{enumerate}
+\end{frame}
+\begin{frame}[t]
+	\begin{theorem}
+		$(a+b)^2 = a^2 + 2ab + b^2$
+	\end{theorem}
+	%
+	\begin{proof}<2->
+		$(a+b)^2=(a+b)(a+b)=a^2+2ab+b^2$
+	\end{proof}
+	%
+	\begin{example}<3->[Square of sum]
+		$(3+5)^2=3^2+2\times3\times5+5^2=64$
+	\end{example}
+\end{frame}
+
+\end{document}
