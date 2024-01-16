@@ -13,16 +13,12 @@
 
 ## Prerequisites
 > [!CAUTION]
-
 > Make sure you have the following libraries installed:
-
 - `pandas`
 - `numpy`
 - `matplotlib`
 - `scipy`
 - `sympy`
-
 You can install them using:
-
 ```bash
 pip install pandas numpy matplotlib scipy sympy
