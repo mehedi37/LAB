@@ -1,6 +1,7 @@
 # Population Prediction and Curve Fitting
 
-![Population vs Year](link_to_an_image.png)
+![Plot Result](https://github.com/mehedi37/LAB/assets/41261534/9041d9b3-91d8-4ff9-8967-94bf2cbb3690) 
+
 
 ## Overview
 
