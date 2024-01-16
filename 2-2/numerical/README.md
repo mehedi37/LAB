@@ -2,6 +2,9 @@
 
 ![Plot Result](https://github.com/mehedi37/LAB/assets/41261534/9041d9b3-91d8-4ff9-8967-94bf2cbb3690) 
 
+# Detailed Process
+![Total Process in the code](https://github.com/mehedi37/LAB/assets/41261534/9d0d21d6-e953-4678-8dec-3299d5936e45)
+
 
 ## Overview
 
