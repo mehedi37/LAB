@@ -1,6 +1,7 @@
 # Population Prediction and Curve Fitting
 
-![Plot Result](https://github.com/mehedi37/LAB/assets/41261534/9041d9b3-91d8-4ff9-8967-94bf2cbb3690) 
+![Plot Result](https://github.com/mehedi37/LAB/assets/41261534/aa42407e-79d1-4614-a6c7-a16089b5c2f0)
+
 
 
 ## Overview
