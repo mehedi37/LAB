@@ -153,6 +153,7 @@ if __name__ == "__main__":
     plt.plot(target_year_values, target_population_newton, 'ro-', label='N.Interpolation')
     plt.plot(target_years_newton_raphson, target_population_newton, 'go-', label='N.Raphson')
     plt.plot(target_year_values, target_population_curve_fit, 'bo-', label='Curve Fitting')
+    plt.plot(years, population, 'mo-', label='Given Data')
 
     plt.xlabel('Year')
     plt.ylabel('Population')
