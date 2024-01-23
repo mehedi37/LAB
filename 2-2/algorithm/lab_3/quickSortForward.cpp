@@ -13,7 +13,10 @@ int partition(vector<int>& arr, int low, int high) {
     int pivot = arr[low];
     int i = low;
     int j = high;
+    int pv = 1;
+    cout << "Pivot: " << pivot << "\n";
     while (i < j) {
+        cout << "For pivot " << pv++ << ": \n";
         while (arr[i] <= pivot) {
             i++;
             stepCount++;
@@ -25,9 +28,12 @@ int partition(vector<int>& arr, int low, int high) {
         if (i < j) {
             swap(&arr[i], &arr[j]);
         }
+        for (int i = 0; i < arr.size(); i++) {
+            cout << arr[i] << " ";
+        }
+        cout << "\n\n";
     }
     swap(&arr[low], &arr[j]);
-    cout << "Pivot: " << pivot << "\n";
     for (int i = 0; i < arr.size(); i++) {
         cout << arr[i] << " ";
     }
@@ -47,29 +53,29 @@ void quickSort(vector<int>& arr, int low, int high) {
 }
 
 
-// int main() {
-//     ifstream file("input.txt");
-//     vector<int> arr;
-//     int x;
-//     while (file >> x) {
-//         arr.push_back(x);
-//     }
-//     int n = arr.size();
-//     quickSort(arr, 0, n - 1);
-//     cout << "Step count for " << arr.size() << " data to quick sort: " << stepCount << endl;
-//     // cout << "Sorted array: \n";
-//     // printArray(arr);
-//     return 0;
-// }
-
 int main() {
+    ifstream file("input.txt");
     vector<int> arr;
     int x;
-    while (cin >> x) {
+    while (file >> x) {
         arr.push_back(x);
     }
     int n = arr.size();
     quickSort(arr, 0, n - 1);
     cout << "Step count for " << arr.size() << " data to quick sort: " << stepCount << endl;
+    // cout << "Sorted array: \n";
+    // printArray(arr);
     return 0;
 }
+
+// int main() {
+//     vector<int> arr;
+//     int x;
+//     while (cin >> x) {
+//         arr.push_back(x);
+//     }
+//     int n = arr.size();
+//     quickSort(arr, 0, n - 1);
+//     cout << "Step count for " << arr.size() << " data to quick sort: " << stepCount << endl;
+//     return 0;
+// }

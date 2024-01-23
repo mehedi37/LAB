@@ -118,7 +118,7 @@ if __name__ == "__main__":
     last_year = int(data.iloc[-1, 0])
 
     # Next 10 years for prediction
-    target_year_values = [last_year + i for i in range(1, 11)]
+    target_year_values = np.arange(last_year+1, last_year+11)
 
     delta = difference_table(population)
     eqn, derivative = find_the_polynomial(delta, years, population)
