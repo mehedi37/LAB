@@ -108,9 +108,9 @@ def curve_fitting(eqn, years, population):
 
 
 if __name__ == "__main__":
-    # data = pd.read_csv('c:\\Users\\mjmeh\\Documents\\Github\\LAB\\2-2\\numerical\\data.csv')
-    url = 'https://raw.githubusercontent.com/mehedi37/LAB/main/2-2/numerical/data.csv'
-    data = pd.read_csv(url)
+    data = pd.read_csv('c:\\Users\\mjmeh\\Documents\\Github\\LAB\\2-2\\numerical\\data.csv')
+    # url = 'https://raw.githubusercontent.com/mehedi37/LAB/main/2-2/numerical/data.csv'
+    # data = pd.read_csv(url)
 
     years = data[data.columns[0]].tolist()
     population = data[data.columns[1]].tolist()
@@ -158,5 +158,29 @@ if __name__ == "__main__":
     plt.xlabel('Year')
     plt.ylabel('Population')
     plt.title('Population vs Year')
+    # Annotate the curves with legend labels
+    plt.annotate('N.Interpolation', xy=(target_year_values[-1], target_population_newton[-1]), xytext=(10, 10),
+                textcoords='offset points', color='r', ha='right', va='top')
+
+    plt.annotate('N.Raphson', xy=(target_years_newton_raphson[-1], target_population_newton[-1]), xytext=(10, 10),
+                textcoords='offset points', color='g', ha='right', va='bottom')
+
+    plt.annotate('Curve Fitting', xy=(target_year_values[-1], target_population_curve_fit[-1]), xytext=(10, 10),
+                textcoords='offset points', color='b', ha='right', va='bottom')
+
+    plt.annotate('Given Data', xy=(years[-1], population[-1]), xytext=(10, 10),
+                textcoords='offset points', color='m', ha='right', va='bottom')
+
     plt.legend()
     plt.show()
+
+
+    '''
+    year, population
+1999, 134480000
+2000, 137120000
+2001, 139820000
+2002, 142600000
+2003, 145450000
+2004, 148380000
+    '''
