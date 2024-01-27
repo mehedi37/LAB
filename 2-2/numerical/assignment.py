@@ -150,20 +150,20 @@ if __name__ == "__main__":
         'lines.markersize': 5
     })
 
-    plt.plot(target_year_values, target_population_newton, 'ro-', label='N.Interpolation')
-    plt.plot(target_years_newton_raphson, target_population_newton, 'go-', label='N.Raphson')
+    # plt.plot(target_year_values, target_population_newton, 'ro-', label='N.Interpolation')
+    # plt.plot(target_years_newton_raphson, target_population_newton, 'go-', label='N.Raphson')
     plt.plot(target_year_values, target_population_curve_fit, 'bo-', label='Curve Fitting')
-    plt.plot(years, population, 'mo-', label='Given Data')
+    plt.plot(years, population, 'mo', label='Given Data')
 
     plt.xlabel('Year')
     plt.ylabel('Population')
     plt.title('Population vs Year')
-    # Annotate the curves with legend labels
-    plt.annotate('N.Interpolation', xy=(target_year_values[-1], target_population_newton[-1]), xytext=(10, 10),
-                textcoords='offset points', color='r', ha='right', va='top')
 
-    plt.annotate('N.Raphson', xy=(target_years_newton_raphson[-1], target_population_newton[-1]), xytext=(10, 10),
-                textcoords='offset points', color='g', ha='right', va='bottom')
+    # plt.annotate('N.Interpolation', xy=(target_year_values[-1], target_population_newton[-1]), xytext=(10, 10),
+    #             textcoords='offset points', color='r', ha='right', va='top')
+
+    # plt.annotate('N.Raphson', xy=(target_years_newton_raphson[-1], target_population_newton[-1]), xytext=(10, 10),
+    #             textcoords='offset points', color='g', ha='right', va='bottom')
 
     plt.annotate('Curve Fitting', xy=(target_year_values[-1], target_population_curve_fit[-1]), xytext=(10, 10),
                 textcoords='offset points', color='b', ha='right', va='bottom')
